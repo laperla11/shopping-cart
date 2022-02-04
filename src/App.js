@@ -10,20 +10,25 @@ import ModalCart from "./components/Modal";
 
 function App() {
   const { cart } = useContext(Context);
-
   return (
     <Container maxWidth="sm">
       <Box sx={{ height: "100vh" }}>
-        <Typography
-          sx={{ textAlign: "center" }}
-          id="modal-modal-title"
-          variant="h6"
-          component="h2"
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
         >
-          Shopping Cart
-        </Typography>
+          <Typography
+            sx={{ textAlign: "center", padding: "25px" }}
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+          >
+            Shopping Cart
+          </Typography>
+          {!!Object.keys(cart)?.length && <ModalCart />}
+        </Stack>
         <ProductsList />
-        {!!Object.keys(cart)?.length && <ModalCart />}
       </Box>
     </Container>
   );

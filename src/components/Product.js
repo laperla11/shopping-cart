@@ -6,6 +6,9 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Input from "@mui/material/Input";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
@@ -32,19 +35,30 @@ const CardItem = ({ id, description, price, UOM }) => {
 
   const value = cart[id] ? cart[id] : 0;
   return (
-    <React.Fragment>
+    <Stack direction="column" alignItems="center">
       <CardContent>
-        <Typography variant="h5" component="div">
+        <Typography sx={{ textAlign: "center" }} variant="h5" component="div">
           {description}
         </Typography>
-
         <Typography variant="body2">
           <span>${price}</span> per {UOM}
         </Typography>
       </CardContent>
       <CardActions>
-        <Stack direction="row" justifyContent="center" alignItems="center">
-          <input value={value} onChange={handleChange} type="number" />
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+          spacing={2}
+        >
+          <FormControl sx={{ width: "15ch" }}>
+            <InputLabel htmlFor="quantity">Quantity</InputLabel>
+            <Input
+              id="component-simple"
+              value={value}
+              onChange={handleChange}
+            />
+          </FormControl>
           {value === 0 && (
             <Stack direction="row" justifyContent="center" spacing={1}>
               <Button
@@ -65,7 +79,7 @@ const CardItem = ({ id, description, price, UOM }) => {
           )}
         </Stack>
       </CardActions>
-    </React.Fragment>
+    </Stack>
   );
 };
 
