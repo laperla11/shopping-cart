@@ -1,0 +1,6 @@
+[
+  { "id": 1001, "description": "Soup", "UOM": "tin", "price": 0.65 },
+  { "id": 1002, "description": "Bread", "UOM": "loaf", "price": 0.8 },
+  { "id": 1003, "description": "Milk", "UOM": "bottle", "price": 1.15 },
+  { "id": 1004, "description": "Apples", "UOM": "bag", "price": 1.05 }
+]
